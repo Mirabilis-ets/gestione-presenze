@@ -1,0 +1,323 @@
+/* Variabili di colore */
+:root {
+    --white: #FFFFFF;
+    --primary: #007BFF;    /* Blu accattivante */
+    --secondary: #212529;  /* Grigio scuro per testo */
+    --light-gray: #F8F9FA; /* Grigio chiaro sfondo */
+    --shadow: 0 4px 12px rgba(0,0,0,0.1); /* Ombreggiatura leggera */
+    --transition: all 0.3s ease;
+}
+
+/* Reset e tipografia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--secondary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Intestazioni */
+h1, h2, h3 {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* Card principali */
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Tabelle */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+.table thead {
+    background: var(--primary);
+    color: var(--white);
+}
+.table th,
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+.table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* Responsive per tabelle mobili */
+@media (max-width: 768px) {
+    .table thead {
+        display: none;
+    }
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
+        display: block;
+        width: 100%;
+    }
+    .table td {
+        text-align: right;
+        padding: 8px 0;
+        position: relative;
+        border-bottom: 1px solid #ddd;
+    }
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 40%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+/* Pulsanti */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+}
+.btn-primary:hover {
+    background: #0056b3;
+}
+.btn-secondary {
+    background: var(--light-gray);
+    color: var(--secondary);
+}
+.btn-secondary:hover {
+    background: #e9ecef;
+}
+.btn-danger {
+    background: #dc3545;
+    color: var(--white);
+}
+
+/* Alert */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    background: var(--white);
+}
+.alert-success {
+    border: 1px solid #28a745;
+    color: #155724;
+}
+.alert-warning {
+    border: 1px solid #ffc107;
+    color: #856404;
+}
+.alert-danger {
+    border: 1px solid #dc3545;
+    color: #721c24;
+}
+
+/* Modali */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.modal-header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1.5rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.modal-body {
+    padding: 2rem;
+}
+
+/* Form */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin: 0.5rem 0;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    transition: border-color 0.2s;
+}
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Grafico */
+#activityChart {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    width:100%;
+    height:700px;
+}
+
+/* Effetti di transizione */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+/* Testo accentato */
+.text-primary {
+    color: var(--primary);
+}
+.text-secondary {
+    color: var(--secondary);
+}
+
+/* Spaziatura */
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+.mb-2 {
+    margin-bottom: 0.8rem;
+}
+
+/* Colore link */
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive globale */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .modal-dialog {
+        max-width: 90%;
+    }
+}
+/* Per le tabelle nel report attività */
+#activityTable, #lessonDetailsTable {
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.table-responsive {
+    max-height: 400px; /* Altezza massima per scorrevolezza verticale */
+    overflow-y: auto;
+}
+
+/* Ridimensiona le colonne più lunghe */
+#lessonDetailsTable th:nth-child(2),
+#lessonDetailsTable td:nth-child(2) {
+    min-width: 100%; /* Adatta la colonna "Alunno" */
+}
+
+#activityTable th:nth-child(1),
+#activityTable td:nth-child(1) {
+    min-width: 100%; /* Adatta la colonna "Esperto" */
+}
+/* Sidebar Fixed */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    .sidebar-menu {
+        width: 100%;
+        max-width: 250px;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 2rem;
+}.
+/* Menu laterale sticky */
+.sidebar-menu {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: white;
+    border-right: 1px solid #eee;
+    padding: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar-menu {
+        position: static;
+        height: auto;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* Fix per il grafico */
+#activityChart {
+    max-width: 100%;
+    height: 400px;
+}
+#schoolsTable {
+    margin-top: 20px;
+}
+
+#schoolsTable th {
+    background-color: #f8f9fa;
+}
