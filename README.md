@@ -85,8 +85,8 @@
   ```sql
   UPDATE wp_gp_students
   SET school = CASE expert
-      WHEN 'Angela Altieri' THEN 'PARETO POZZUOLI'
-      WHEN 'Anna Mazziotti' THEN 'PARETO POZZUOLI'
+      WHEN 'Nome Cognome' THEN 'ISTITUTO DEMO'
+      WHEN 'Nome Cognome' THEN 'ISTITUTO DEMO'
       -- Aggiungi altri casi come mostrato nel Knowledge Base
   END
-  WHERE expert IN ('Angela Altieri', 'Anna Mazziotti', ...);
+  WHERE expert IN ('Nome Cognome', 'Nome Cognome', ...);
