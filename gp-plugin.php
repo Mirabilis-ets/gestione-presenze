@@ -26,8 +26,11 @@ function gp_create_tables() {
         project_code VARCHAR(255) NOT NULL,
         class VARCHAR(50) NOT NULL,
         expert VARCHAR(255) NOT NULL,
-        school VARCHAR(255) NOT NULL DEFAULT 'Scuola Default'
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        school VARCHAR(255) NOT NULL DEFAULT 'Scuola Default',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        KEY idx_expert (expert),
+        KEY idx_project_code (project_code),
+        KEY idx_school (school)
     ) $charset;";
 
     // Tabella Esperti (aggiunto 'hourly_rate')
@@ -37,7 +40,6 @@ function gp_create_tables() {
         name VARCHAR(255) NOT NULL,
         surname VARCHAR(255) NOT NULL,
         username VARCHAR(255) NOT NULL UNIQUE,
-        password VARCHAR(255) NOT NULL,
         hourly_rate DECIMAL(5,2) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     ) $charset;";
@@ -51,7 +53,9 @@ function gp_create_tables() {
         start_time TIME NOT NULL,
         end_time TIME NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (student_id) REFERENCES $students_table(id) ON DELETE CASCADE
+        FOREIGN KEY (student_id) REFERENCES $students_table(id) ON DELETE CASCADE,
+        KEY idx_student_id (student_id),
+        KEY idx_lesson_date (lesson_date)
     ) $charset;";
     // Tabella Scuola
     $schools_table = $wpdb->prefix . 'gp_schools';
